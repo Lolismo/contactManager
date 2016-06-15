@@ -1,4 +1,4 @@
-package com.bartek;
+package com.bartek.test.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

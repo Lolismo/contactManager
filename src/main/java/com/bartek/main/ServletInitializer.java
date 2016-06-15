@@ -1,4 +1,4 @@
-package com.bartek;
+package com.bartek.main;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
