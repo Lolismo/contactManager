@@ -11,35 +11,36 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.bartek.entity.Contact;
+import com.bartek.entity.Account;
 import com.bartek.main.ContactManagerApplication;
-import com.bartek.repository.ContactRepository;
+import com.bartek.repository.AccountRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ContactManagerApplication.class)
 @DataJpaTest
-public class ContactRepositoryTest {
+public class AccountRepositoryTest {
 
-	@Autowired
-	private TestEntityManager entityManager;
+private Account a;	
 	
 	@Autowired
-	private ContactRepository contactRepository;
+	private TestEntityManager entityManager;
 
-	private Contact c;
+	@Autowired
+	private AccountRepository accountRepository;
+
 	@Before
-	public void setUp() {
-		c = new Contact();
-		c.setFirstName("aaa");
-		c.setLastName("lala");
+	public void setUp() throws Exception {
+		
+		a = new Account();
+		a.setEmail("bba@email.com");
+		a.setPassword("sa");
 	}
 
 	@Test
 	public void test() {
+		this.entityManager.persist(a);
 
-		this.entityManager.persistAndFlush(c);
-		
-		assertEquals(1, contactRepository.findAll().size());
+		assertEquals(1, accountRepository.findAll().size());
 	}
 
 }

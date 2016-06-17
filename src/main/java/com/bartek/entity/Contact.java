@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -15,12 +16,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
+@Table(name="Contact")
 public class Contact {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "contact_id")
-	private long id;
+	private Long id;
 	
 	@Column(name = "firstName")
 	@NotEmpty
@@ -50,7 +51,7 @@ public class Contact {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "accountId")
 	private Account account;
 	
 	public Contact() {
